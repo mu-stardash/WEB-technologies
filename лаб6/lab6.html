@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Тест</title>
+    <style>
+        input:required:invalid {
+            background-color: rgb(255, 223, 223);
+        }
+        #body {
+		margin: 15px;
+		padding: 10px;
+		background-image: url(ph_one.jpg);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-attachment: fixed;
+		background-size: cover;
+		color: #3e0447;
+		font-size: 24px;
+        }		
+		form {
+		background: #ffb4b4d2; 
+		padding: 5px 30px;
+		border-radius: 20px;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}		
+		a { 
+		 color: black; 
+		 text-decoration: none; 
+		 margin: 5px;
+		 padding: 10px;
+	    } 
+		a:hover {
+			color: #800000; 
+			text-decoration: underline; 
+		   }		   
+		a:visited { 
+			 color: #cf1002ce; 
+			 text-decoration: none; 
+		 }
+		span.quest {font-weight: bold;}
+    </style>
+    <script src="script_6.js"></script>
+    <meta charset="utf-8">
+</head>
+
+<body id="body">
+    
+	
+<form>
+<span style='font-size:12.0pt;'>
+<a href="C:/ucheba/WEB/лаб5/form_5.html">Назад</a></span>
+<h1>Тестирование по Теории Вероятности и Математической Статистике</h1>
+<h2>Этот тест позволяет оценить Ваши знания! ;)</h2>
+
+<script >
+// Вопросы
+var questions=[
+{
+	text: "Вероятностное пространство задается",
+	answers: ["пространством элементарных исходов Омега, сигма-алгеброй, вероятностью Р",
+		  "пространством элементарных исходов Омега, вероятностью Р",
+		  "n-ым пространством, сигма-алгеброй, вероятностью Р",
+		  "n-ым пространством, сигма-алгеброй"],
+	correctAnswer: 0 // нумерация ответов с нуля!
+},
+{
+	text: "Случайное событие - это",
+	answers: ["событие с вероятностью 0.5",
+		  "независимое испытание",
+		  "элемент сигмы-алгебры",
+		  "события с возможными двумя исходами"],
+	correctAnswer: 2
+}
+];
+
+
+var questions_2=[{
+	text: "Обобщением биномиальной схемы является:",
+	answers: [" "],
+}
+];
+</script>
+
+
+<ol>
+<script>
+for (var q = 0; q < questions.length; ++q) {
+   var question = questions[q];
+   var idx = 1 + q;
+
+   document.writeln('<li><span class="quest">' + question.text + '</span><br/><br>');
+   for (var i in question.answers) {
+	document.writeln('<input type=radio name="q' + idx + '" value="' + i +
+	'" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>' + '<br/>');
+}
+}
+
+for (var q = 0; q < questions_2.length; ++q) {
+   var question2 = questions_2[q];
+   var idx = 1 + q;
+
+   document.writeln('<li><span class="quest">' + question2.text + '</span><br/>');
+   for (var i in question2.answers) {
+	document.writeln('<input type="text" id = "otryad" name="q' + idx +  '" value="' +
+	'" ">'  + '<br/>');
+}
+}
+</script>
+</ol>
+
+<p style="padding-left:15px;">4. <b>Случайная величина непрерывного типа задается:</b></p>         
+            <p style="padding-left:45px;"><input type="checkbox" id="ch-1">Законом распределения</p>
+            <p style="padding-left:45px;"><input type="checkbox" id="ch-2">Плотностью</p>
+            <p style="padding-left:45px;"><input type="checkbox" id="ch-3">Нормальным законом</p>
+            <p style="padding-left:45px;"><input type="checkbox" id="ch-4">Функцией распределения</p>
+
+<p style="padding-left:15px;">5. <b>Верны ли следующие условия использования схемы Бернулли?</b></p>
+	<label style="padding-left:45px;">последовательность из n зависимых испытаний</label>
+	<select id="select-1" size="1">
+		<option value="0" selected>Да</option>
+		<option value="1">Нет</option>
+	</select>
+
+	<label style="padding-left:45px;">в результате возможно 2 исхода</label>
+	<select id="select-2" size="1">
+		<option value="0" selected>Да</option>
+		<option value="1">Нет</option>
+	</select>
+
+	<p><label style="padding-left:45px;">вероятностью успеха постоянна</label>
+	<select id="select-3" size="1">
+		<option value="0" selected>ДА</option>
+		<option value="1">Нет</option>
+	</select></p>
+
+<br>
+<p style="text-align: center;"><input type="button" onClick="Score()" value="Проверь себя!"></p>
+
+</form>
+</body>
+</html>

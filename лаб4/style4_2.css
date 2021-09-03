@@ -1,0 +1,183 @@
+body { 
+  font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; 
+  font-size: 16pt;
+  grid-auto-columns: minmax(20%, max-content);
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "article article"
+    "footer footer";
+  grid-template-rows: 120px 1fr 100px;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+  height: 100vh;
+  margin: 10px;
+  
+  	background-image: url(ph_lab4_2.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-attachment: fixed;
+	background-size: cover;
+	
+}
+
+img {
+	height: 70px;
+	width: 70px;
+	border: 2px solid orange;
+	float: top;
+} 
+
+footer, article, div {
+  padding: 20px;
+  background: #f5e198ac;
+  border-radius: 50px;
+}
+
+article {
+	background: #ed9adbd2; 
+	height: auto;	
+}
+
+#inner-header {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-gap: 15px;
+  background: #ffe99900; /* Прозрачный */
+}
+#inner-header > div {
+  padding: 8px;
+  font-size: 32px; 
+  font-weight: bolder;
+  background: #ffe99900;
+}
+
+#pageHeader {
+  grid-area: header;
+  background: #f5e198ac;
+  border-radius: 50px;
+}
+
+#pageMain {
+	grid-area: article;
+	height: auto;
+}
+
+#inner-article {
+	display: grid;
+	height: auto;
+	grid-auto-columns: minmax(30px, max-content) ;
+	grid-template-columns: 350px 1fr;
+    grid-gap: 10px;
+    background: #ffe99900; /* Прозрачный */
+}
+
+#inner-article > #inner-aside {
+	padding: 8px;
+    font-size: 24px; 
+    background: #ffe99900;
+	width: 100%;
+	padding-right: 100px;
+}
+#inner-article > #inner-article-center {
+	padding: 8px;
+    font-size: 24px; 
+	height: auto;
+    background: #ffe99900;
+}
+
+#inner-article-center {
+	display: grid;
+	grid-template-rows: 30px auto;
+}
+
+#inner-article-center > #header-center {
+	padding: 8px;
+    font-size: 32px; 
+	font-weight: bolder;
+    background: #ffe99900;
+	width: 100%;
+	height: auto;
+	padding-right: 100px;
+}
+
+#inner-article-center > section {
+	padding: 8px;
+    font-size: 24px; 
+    background: #ffe99900;
+	width: 100%;
+	height: auto;
+	padding-right: 100px;
+	font-family: inherit; 
+	text-align: justify;
+	text-indent: 30px; /* Красная строка */
+}
+
+
+#inner-aside {
+	display: grid;
+	grid-auto-columns: minmax(30px, max-content) ;
+	grid-template-rows: 2% 20% 50%;
+	grid-template-columns: 1fr;
+    grid-gap: 25px;
+    padding: 0px;
+    background: #ffe99900; /* Прозрачный */
+}
+
+#inner-aside > nav {
+	padding: 8px;
+    font-size: 20px;
+	float: top;
+    background: #ffe99900;
+}
+
+#inner-aside > section {
+	padding: 8px;
+    font-size: 20px; 
+	float: top;
+
+}
+
+#pageFooter {
+  grid-area: footer; 
+}
+
+#inner-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  padding: 0px;
+  background: #ffe99900;
+}
+
+#inner-footer > p {
+  padding: 8px;
+  font-size: 20px; 
+
+}
+
+#inner-footer > .p_cop {
+  padding: 8px;
+  font-size: 20px; 
+  text-align: right;
+}
+
+h2, h4 {
+	text-align: center;
+}
+a { 
+     color: black; 
+	 text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	 margin: 5px;
+	 padding: 10px;
+ } 
+ 
+a:hover {
+    color: #800000; /* Цвет ссылки при наведении на нее курсора мыши */  
+    text-decoration: underline; /* Добавляем подчеркивание */
+   }
+   
+a:visited { 
+     color: #cf1002ce; /*Цвет посещенных ссылок*/ 
+	 text-decoration: none; /* Отменяем подчеркивание у ссылки */
+ } 

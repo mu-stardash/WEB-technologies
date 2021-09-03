@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Penguin Canvas</title>
+  <meta charset="utf-8"> 
+  <script>
+  
+	function getRadians(degrees) {
+		return (Math.PI/180)*degrees;
+		}
+		
+    function draw() {
+      var canvas = document.getElementById("canvas2");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+		ctx.fillStyle = "rgb(62, 201, 134, 0.94)";
+        ctx.fillRect(0, 0, 1300, 850);
+		
+		type = "source-over"; // картинка НА картинке рисуется
+		ctx.globalCompositeOperation = type;
+		
+		var img = new Image();
+        img.onload = function () {
+			ctx.drawImage(img, 20, 300, 800, 400);
+			
+			// сидушка
+			ctx.shadowOffsetX = 6;
+			ctx.shadowOffsetY = 10;
+			ctx.shadowBlur = 5;
+			ctx.shadowColor = "gray";
+			
+			ctx.beginPath();
+			ctx.globalAlpha = .7; // прозрачность
+			ctx.fillStyle = "brown";
+			ctx.fillRect(350, 600, 300, 50); // прямоугольник		
+			ctx.fill();
+			
+			// сброс 
+			ctx.shadowOffsetX = 0;
+			ctx.shadowOffsetY = 0;
+			ctx.shadowBlur = 0;
+			ctx.globalAlpha = 1;
+			// РИСУЕМ FATTY ПИНГВИНА
+			// бошка
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.ellipse(500, 150, 75, 100, 0, 0, 360);			
+			ctx.fill();		
+			
+			// тело
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.ellipse(500, 400, 170, 214, 0, 0, 360);			
+			ctx.fill();
+			
+			
+			// градиент на брюхо
+			var gradient = ctx.createRadialGradient(490, 380, 30, 500, 400, 125);
+			gradient.addColorStop(0.05, 'white');
+			gradient.addColorStop(0.9, 'rgb(201, 201, 175)');		
+			
+			// грудастый
+			ctx.beginPath();
+			ctx.fillStyle = gradient;
+			ctx.ellipse(500, 400, 125, 170, 0, 0, 360);			
+			ctx.fill();
+			
+			// левая ласта, квадратичной кривой Безье
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.moveTo(390, 510);
+			ctx.quadraticCurveTo(450, 500, 350, 350);
+			ctx.stroke();
+			ctx.fill();
+					
+			// правая ласта, квадратическая кривая Безье
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.moveTo(630, 510);
+			ctx.quadraticCurveTo(520, 520, 650, 350);
+			ctx.stroke();
+			ctx.fill();
+					
+			// левая нога (как корона)
+			ctx.beginPath();
+			ctx.fillStyle = "yellow";
+			ctx.arc(410, 530, 80, 4/8 * Math.PI, 1/4 * Math.PI, true);
+			//Заливаем дугу
+			ctx.fill();
+			ctx.moveTo(410, 610); 
+			ctx.lineTo(350, 530); // лево верх		
+			ctx.lineTo(390, 550); // лево вниз
+			ctx.lineTo(400, 490); // центр верх		
+			ctx.lineTo(440, 540); // центр низ
+			ctx.lineTo(460, 500); // право верх	
+			ctx.lineTo(466, 587); // право низ
+			ctx.fill();
+					
+			// правая нога (как корона)
+			ctx.beginPath();
+			ctx.fillStyle = "yellow";
+			ctx.strokeStyle = "yellow";
+			ctx.arc(590, 560, 60, getRadians(160), getRadians(80), true);
+			//Заливаем дугу
+			ctx.fill();
+			ctx.moveTo(535, 580); 
+			ctx.lineTo(540, 510); // лево верх		
+			ctx.lineTo(560, 550); // лево вниз
+			ctx.lineTo(600, 500); // центр верх		
+			ctx.lineTo(605, 560); // центр низ
+			ctx.lineTo(640, 550); // право верх	
+			ctx.lineTo(600, 618); // право низ
+			ctx.closePath();
+			ctx.lineWidth = 5;
+			ctx.lineTo(536, 586);
+			ctx.fill();
+			ctx.stroke();
+				
+			ctx.lineWidth = 1;	
+			// глаза!
+			ctx.beginPath();
+			ctx.fillStyle = "white";
+			ctx.ellipse(480, 147, 12, 25, getRadians(-15), 0, 360);
+			ctx.ellipse(520, 147, 12, 25, getRadians(15), 0, 360);	
+			ctx.fill();
+			
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.ellipse(482, 154, 6, 13, getRadians(-15), 0, 360);
+			ctx.ellipse(518, 154, 6, 13, getRadians(15), 0, 360);	
+			ctx.fill();
+			
+			// клювик
+			ctx.beginPath();		
+			ctx.fillStyle = '#fabe46'
+			ctx.moveTo(460, 180);
+			ctx.lineTo(500, 200);
+			ctx.lineTo(540, 180);
+			ctx.fill();
+			
+			ctx.beginPath();
+			ctx.fillStyle = 'yellow'
+			ctx.lineTo(500, 150);
+			ctx.lineTo(460, 180);		
+			ctx.quadraticCurveTo(500, 190, 540, 180);
+			ctx.strokeStyle = "orange";
+			ctx.stroke();
+			ctx.fill();
+			
+			// ноздри
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.ellipse(490, 163, 2, 5, Math.PI / 4, 0, 360);
+			ctx.ellipse(510, 163, 2, 5, -Math.PI / 4, 0, 360);			
+			ctx.fill();    
+			}
+        img.src = "bear.png";	
+		}		
+			
+	  var canvas2 = document.getElementById("canvas");
+      if (canvas2.getContext) {
+        var ctx2 = canvas2.getContext("2d");
+
+        ctx2.shadowOffsetX = 4;
+        ctx2.shadowOffsetY = 4;
+        ctx2.shadowBlur = 3;
+        ctx2.shadowColor = 'grey';
+				
+		var gradient = ctx.createLinearGradient(2, 5, 0, 60);
+		gradient.addColorStop(0.0, 'red');
+		gradient.addColorStop(0.3, 'green');
+		ctx2.fillStyle = gradient;
+		ctx2.font = "italic 32px Arial";
+		ctx2.fillText("Это пингвин", 10, 30);
+		
+		
+		ctx2.shadowOffsetX = 0;
+        ctx2.shadowOffsetY = 0;
+        ctx2.shadowBlur = 0;
+		ctx2.font = "bold 2em Courier";
+		ctx2.strokeText("И его друг медведь!!!", 100, 70);
+		
+		ctx2.font = "oblique lighter 34px Georgia";
+		ctx2.fillStyle = 'maroon';
+		ctx2.fillText("Сидят.", 300, 120);		
+		}
+		
+		
+	var img1 = new Image();
+	img1.src = 'pan1.jpg';
+	var CanvasXSize = 1300;
+	var CanvasYSize = 700;
+	var speed = 30; // чем ниже - тем быстрее
+	var y = -4.5; // вертикальное смещение	
+
+	var dx = 0.75; // счетчик для перемещения
+	var imgW; var imgH;
+	var x = 0;
+	var clearX; var clearY;
+	var ctx3;
+
+	img1.onload = function() {
+		imgW = img1.width;
+		imgH = img1.height;
+		if (imgW > CanvasXSize) { 
+			x = CanvasXSize-imgW; clearX = imgW; 
+		} // если картинка больше чем канвас
+		else { clearX = CanvasXSize; }
+		if (imgH > CanvasYSize) { clearY = imgH; } // image larger than canvas
+		else { clearY = CanvasYSize; }
+		
+		ctx3 = document.getElementById('canvas3').getContext('2d');
+		// устанавливаем частоту обноления
+		return setInterval(draw2, speed);
+		}
+
+		function draw2() {
+		// очищаем канвас
+		ctx3.clearRect(0,0,clearX,clearY);
+		// если длина картинки <= длине канваса
+		if (imgW <= CanvasXSize) {			
+			if (x > (CanvasXSize)) { x = 0; } // сбросить, начать с начала 
+			if (x > (CanvasXSize-imgW)) { ctx3.drawImage(img1,x-CanvasXSize+1,y,imgW,imgH); } // рисуется доп изображение
+		}
+		// иначе если картинка больше
+		else {
+			// сбросить, начать с начала 
+			if (x > (CanvasXSize)) { x = CanvasXSize-imgW; }
+			// рисуется доп изображение
+			if (x > (CanvasXSize-imgW)) { ctx3.drawImage(img1,x-imgW+1,y,imgW,imgH); }
+		}		
+		ctx3.drawImage(img1,x,y,imgW,imgH); // рисуем изображение		
+		x += dx; // счетчик для перемещения
+		}
+}	
+
+  </script>
+</head>
+
+<body onload="draw();" style="background-color: #f5ff8af0;">
+  <canvas id="canvas" width="1300" height="150"></canvas> <!-- для текста -->
+  <canvas id="canvas2" width="1300" height="800"></canvas> <!-- для картинки -->
+  <canvas id="canvas3" width="1300" height="700"></canvas>
+</body>
+</html>

@@ -1,0 +1,180 @@
+body { 
+  font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; 
+  background-color: black;
+  font-size: 16pt;
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "nav nav nav"
+	"article1 article2 article3"
+    "footer footer footer";
+  grid-template-rows: 120px 60px 1fr 100px;
+  grid-template-columns: 50% 20% 1fr;
+  grid-gap: 10px;
+  height: 100vh;
+  margin: 10px;
+}
+  
+img {
+	height: 70px;
+	width: 70px;
+	border: 2px solid orange;
+	float: top;
+} 
+  
+header, footer, article, nav, div,aside {
+  padding: 20px;
+  background: #F5DEB3;
+  border-radius: 50px;
+}
+nav {
+  background: #FE9798;
+}
+aside, article {
+	background: #ed9adbd2;  
+}
+
+#inner-header {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-gap: 15px;
+  padding: 0px;
+}
+#inner-header > div {
+  background: #F5DEB3;
+  padding: 8px;
+  font-size: 32px; 
+  font-weight: bolder;
+}
+
+#inner-nav {
+  background: #FE9798;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 120px;
+  padding: 0px;
+}
+
+#inner-nav > div {
+  background: #FE9798;
+  padding: 8px;
+  font-size: 20px; 
+}
+
+#inner-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  padding: 0px;
+}
+
+#inner-footer > p {
+  padding: 8px;
+  font-size: 20px; 
+}
+
+#inner-footer > .p_cop {
+  padding: 8px;
+  font-size: 20px; 
+  text-align: right;
+}
+
+#pageHeader {
+  grid-area: header;
+}
+
+#pageFooter {
+  grid-area: footer;
+  
+}
+
+#article_left { 
+  grid-area: article1;      
+ }
+ 
+section {
+     background: #b04198;
+     width: 90%;
+     height: auto;
+	 margin: auto;
+	 border: 2px solid black;
+	 padding: 3px;
+	 color: white;
+}
+
+h2 {
+	padding-left: 15px;
+}
+
+p {
+	padding: 2px 10px 30px 5px;
+	margin: 5px;
+	font-size: 20px;
+	font-family: inherit;
+	text-align: justify;
+	text-indent: 30px; /* Красная строка */
+	clear: both;
+	float: top;
+}
+
+i {
+	font-family: inherit;
+	font-size: inherit;
+	letter-spacing: 2px; /* Расстояние между буквами */
+}
+  
+#article_center { 
+  grid-area: article2; 
+  background: #ed9adbd2;  
+  }
+  
+#ph_two {
+	max-width: 100%;
+	width:auto;
+	min-width: 10%;
+	height: auto;
+	position: relative;
+	border: 2px solid orange;
+	border-radius: 50px;
+	margin-top: 70px;
+
+} 
+ 
+#article_right { 
+  grid-area: article3;  
+}
+
+#article3 > ul, li {
+	padding: 8px;
+    font-size: 20px; 
+}
+
+#article3 > .h2_right {
+	padding: 8px;
+	font-size: 100%;
+}
+  
+#mainNav { 
+  grid-area: nav; 
+  }
+  
+#siteAds { 
+  grid-area: ads; 
+  }
+  
+a { 
+     color: black; 
+	 text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	 margin: 5px;
+	 padding: 10px;
+ } 
+ 
+a:hover {
+    color: #800000; /* Цвет ссылки при наведении на нее курсора мыши */  
+    text-decoration: underline; /* Добавляем подчеркивание */
+   }
+   
+a:visited { 
+     color: #cf1002ce; /*Цвет посещенных ссылок*/ 
+	 text-decoration: none; /* Отменяем подчеркивание у ссылки */
+ } 

@@ -1,0 +1,135 @@
+/* Универсальный селектор */
+/* *{...} */
+
+body { /* Стиль тела документа */
+  font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; 
+  font-size: 14pt;
+  background-color: white;
+  margin: 30px 30px 5px; /* Сокращенная запись свойства  Top + RL + Bottom */ 
+}
+
+/* Стиль заголовков */
+h1, h2 { /* Объединение селекторов */
+	font-size: 250%;
+	color: #40025C;
+	font-family: Arial, sans-serif;
+}
+
+/* Стиль абзацев */
+p { /* Селектор по названияем тегов */
+	font-size: 20px;
+	color: #3C1EFA;
+	font-family:  Arial, monospace;
+	text-align: justify;
+	text-indent: 30px; /* Красная строка */
+}
+
+/* Изменение стиля для элемента p */
+#idi b { /* селектор потомков, наследование*/
+	
+	letter-spacing: 5px; /* Расстояние между буквами */
+	background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet); /* Радужный текст */
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent; 
+	font-size: inherit; /* наследование значения свойства у родителя*/
+}
+
+/* Приоритеты стилевого оформления */
+h2 {font-size: 550%;}
+h2 {font-size: 150%;}
+
+/* Заголовок, селектор по классам */
+.title1 {
+	text-align: center;
+	margin: 5px; /* Сокращенная запись свойства TRBL */ 
+}
+
+#id1 { /* Селектор по id*/
+	font-size: 7mm;
+	color: black;
+	font-family: Arial, serif;
+}
+
+ul {
+	color: #7D4D94;
+	font-size: 5mm;
+	font-family: inherit;
+}
+
+img {
+	width: 550px;
+	height: 350px;
+	border: 2px solid #663AE0;
+}
+
+hr {
+	height: 16px;
+	border: 0;
+	box-shadow: inset 0 15px 20px -10px rgba(0,0,0,0.15);
+}
+
+a:hover { /* Селектор псевдоклассов - 1*/
+	text-decoration: none;
+}
+h2::first-letter { /* Селектор псевдоэлементов - 1 */
+	color: tomato;
+	font-family: bold;
+}
+
+/* Для многоуровнего списка, селектор по классам */
+.class2 { 
+	color: #4F14FA;
+	font-size: 170%;
+}
+
+.img_class { /* Селектор по классам */
+	text-align:center;
+	margin: 25px;
+}
+
+a[href="#link"] { /* Селектор атрибутов */
+	color: tomato;
+}
+
+#uniqe {
+	text-align: center;
+}
+
+div {
+	font-size: 20px; 
+	font-family:  Arial, monospace;
+}
+
+.mainUL {
+	list-style: circle;
+}
+
+.passUL {
+	list-style: none;
+}
+
+/* Селектор потомков */
+.passUL li::before { /* Псевдоэлемент - 2 */
+	content: "✿"; 
+    padding-right: 7px; 
+    color: inherit; /* наследуемый цвет от родителя */
+}
+
+.singles {color: #40025C;}
+
+p.psevd::after { /* Псевдоэлемент - 3 */
+	content: "- Последний релиз!";
+	margin-left: 10px;
+	color: red;
+}
+
+#gmail:link { /* Псевдокласс - 2*/
+	color: #0FF;
+}
+
+ a:visited { /*Псевдокласс - 3*/ 
+     color: #30BA8F; /*Цвет посещенных ссылок*/ 
+ } 
+
+
+

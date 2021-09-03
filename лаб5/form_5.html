@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Информация о пользователе</title>
+    <style>
+        input:required:invalid {
+            background-color: rgb(255, 223, 223);
+        }
+
+        #body {
+            background-color: #f5e198;
+            color: black;
+            font-size: 16pt;			
+        }
+		
+		form {
+		font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; 
+		display: grid;
+			grid-template-areas: 
+				"h1 h2 h3";
+			grid-template-rows: auto;
+			grid-template-columns: 40% 30% 25%;
+			grid-gap: 10px;
+			margin: 10px;
+			border-radius: 50px;
+		}
+		
+		#f1 {
+		grid-area: h1; 
+		}
+		
+		#f2 {
+		grid-area: h2;
+		}
+		
+		#f3 {
+		grid-area: h3;
+		}
+		
+		#res {
+		grid-area: r;	
+		}
+		
+		#spec_p {
+		text-align: right;
+		}
+		
+    </style>
+    <script src="script.js"></script>
+    <meta charset="utf-8">
+</head>
+
+<body id="body">
+    <form onSubmit="return formSub(this)">
+        <fieldset id = "f1">
+            <legend>Личная информация</legend>
+			<p>
+                <label>Фамилия:</label>
+                <input id="surn" type="text" style="margin-left: 7pt;" autocomplete = "on" autofocus required placeholder="Петров"
+                    pattern="[A-Za-zА-Яа-яЁё]{2,30}">
+            </p>
+            <p>
+                <label>Имя:</label>
+                <input id="name" type="text" style="margin-left: 7pt;" autocomplete = "on" required placeholder="Петр"
+                    pattern="[A-Za-zА-Яа-яЁё]{2,20}">
+            </p>
+			<p>
+                <label>Отчество:</label>
+                <input id="patr" type="text" style="margin-left: 7pt;" autocomplete = "on" placeholder="Петрович"
+                    pattern="[A-Za-zА-Яа-яЁё]{2,25}">
+            </p>
+
+            <p>
+                <label>Дата рождения:</label>
+                <input id="date" type="date" required style="margin-left: 7pt;">
+				
+            </p>
+			
+			<p>
+                <label>Номер телефона:</label>
+                <input id="tel" type="tel" style="margin-left: 7pt;" required 
+				pattern = "(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){11,15}(\s*)?">
+            </p>
+			
+            <p>
+                <label>Адрес эл. почты:</label>
+                <input id="email" type="email" style="margin-left: 7pt;" autocomplete = "on" required placeholder="mail@example.com">
+            </p>
+
+            <p>
+                <label>Адрес дом. страницы:</label>
+                <input id="adres" type="url" style="margin-left: 7pt;" autocomplete = "on" required placeholder="http://www.example.com"><br>
+            </p>
+        </fieldset>
+
+        <fieldset id = "f2">
+            <legend>Дополнительная информация</legend><br>
+				<input type="checkbox" id="checkbox1" oninput="onChecked(1, 'checkbox1')">Учусь в школе<br>
+					<fieldset style="display: none;" id="1">
+						<p><input type="radio" class="school" name="school" checked value="Начальаня школа"> Начальаня школа</p>
+						<p><input type="radio" class="school" name="school" value="Средняя школа"> Средняя школа</p>
+						<p><input type="radio" class="school" name="school" value="Старшая школа"> Старшая школа</p>
+					</fieldset><br>
+
+                <input type="checkbox" id="checkbox2" oninput="onChecked(2, 'checkbox2')">Являюсь студентом<br>
+					<fieldset style="display: none;" id="2">
+						<p><input type="radio" class="kurs" name="kurs" checked value="1 курс"> 1 курс</p>
+						<p><input type="radio" class="kurs" name="kurs" value="2 курс"> 2 курс</p>
+						<p><input type="radio" class="kurs" name="kurs" value="3 курс"> 3 курс</p>
+						<p><input type="radio" class="kurs" name="kurs" value="4 курс"> 4 курс</p>
+						<p><input type="radio" class="kurs" name="kurs" value="4 курс"> 5 курс</p>
+						<p><input type="radio" class="kurs" name="kurs" value="4 курс"> 6 курс</p>
+					</fieldset><br>
+
+
+                <input type="checkbox" id="checkbox3" oninput="onChecked(3, 'checkbox3')">Уже есть работа<br>
+					<fieldset style="display: none;" id="3">
+						<p>
+							<label>Место работы</label>
+							<input id="mesto" type="text" style="margin-left: 7pt;">
+						</p>
+						<p>
+							<label>Должность</label>
+							<input id="dolzhnost" type="text" style="margin-left: 7pt;">
+						</p>
+					</fieldset>
+        </fieldset>
+
+        <fieldset id ="f3">
+            <legend>Настройки</legend>
+            <p>
+                <label>Измените цвет текста страницы:</label>
+                <input type="color" id="fontcolor" list="colorList" value="#000000" oninput="onFontColorChanged()">
+            </p>
+
+            <p>
+                <label>Измените цвет фона страницы:</label>
+                <input type="color" id="backgroundcolor" list="colorList" value="#f5e198"
+                    oninput="onFontColorChanged()">
+            </p>
+			
+			<datalist id="colorList"> <option value="color"> </datalist>
+
+            <p>
+                <label>Измените размер текста страницы:</label>
+                <input id="size" type="range" name="font-size" min="8" max="30" value="10" onmouseup="thumbNumber()">
+            </p>
+        </fieldset>
+        <p><input type="submit"></p>
+		<p></p>
+		
+		<!-- ШЕСТАЯ ЛАБА -->
+        <p id = "spec_p"><button type="button" onclick="testirovanie()">ТЕСТИРОВАНИЕ</button></p>
+		
+    </form>
+
+    <fieldset id="res" style="display: none;">
+        <legend>Введённая Вами информация:</legend>
+        <div id="result">
+        </div>
+    </fieldset>
+
+</body>
+
+</html>
